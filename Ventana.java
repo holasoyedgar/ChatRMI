@@ -1,5 +1,6 @@
 //package cliente;
 
+import java.awt.event.*;
 import java.util.Calendar;
 
 public class Ventana extends javax.swing.JFrame {
@@ -13,6 +14,18 @@ public class Ventana extends javax.swing.JFrame {
         initComponents();
         this.cliente = cliente;
         this.name = name;
+
+        addWindowListener(new WindowAdapter()
+      {
+         public void windowClosing(WindowEvent e)
+         {
+            cliente.eliminarUsuario(name);
+       //     System.out.println("Hasta la proxima");
+           dispose();
+           System.exit(0); 
+         }
+      });
+ 
     }
 
     /**
@@ -142,6 +155,8 @@ public class Ventana extends javax.swing.JFrame {
                 // new Ventana().setVisible(true);
             }
         });
+
+
     }
     
 	public String mensaje;
@@ -152,6 +167,7 @@ public class Ventana extends javax.swing.JFrame {
 	
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                 
         cliente.eliminarUsuario(name);
+        System.exit(0);
     }
 
 	public void printToScreen(String name, String mensaje) {
