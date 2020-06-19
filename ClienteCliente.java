@@ -8,7 +8,7 @@ import java.util.*;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 
-public class ClienteCliente extends UnicastRemoteObject implements InterfazCliente, Runnable {
+public class ClienteCliente extends UnicastRemoteObject implements InterfazClienteCliente, Runnable {
 
 
 	private static final long serialVersionUID = 1L;
@@ -35,17 +35,13 @@ public class ClienteCliente extends UnicastRemoteObject implements InterfazClien
     	System.out.println(name + ": " + this.getRef());
         try {
             String urlServidor = "rmi://" + otroCliente + ":3000/RMIChatClienteCliente";
-            System.out.println(urlServidor);
+           // System.out.println(urlServidor);
             InterfazClienteCliente cliente = (InterfazClienteCliente) Naming.lookup(urlServidor);
+            ventana.printToScreen(name, mensaje);
         	cliente.retriveMessage(name, mensaje);
         } catch (Exception ex) {
             Logger.getLogger(ClienteCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-	@Override
-	public String getName() throws RemoteException {
-		// TODO Auto-generated method stub
-		return this.name;
-	}    
+  
 }

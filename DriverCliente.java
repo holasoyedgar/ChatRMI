@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
 
 public class DriverCliente {
 	public DriverCliente(String name, String ipServidor) throws NotBoundException, MalformedURLException, RemoteException{
-		String urlServidor = "rmi://" + ipServidor + "/RMIChatServer:3000";
+		String urlServidor = "rmi://" + ipServidor + ":3000/RMIChatServer";
         Interfaz servidor = (Interfaz) Naming.lookup(urlServidor);
         new Thread(new Cliente(name, servidor)).start();
 	}
