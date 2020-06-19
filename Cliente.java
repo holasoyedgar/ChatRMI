@@ -5,6 +5,8 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.net.*;
+import java.util.*;
 
 public class Cliente extends UnicastRemoteObject implements InterfazCliente, Runnable {
 
@@ -13,6 +15,23 @@ public class Cliente extends UnicastRemoteObject implements InterfazCliente, Run
     private String name = null;
     Ventana ventana;
     protected Cliente(String name, Interfaz servidor) throws RemoteException {
+        /*
+try{
+        Enumeration Interfaces = NetworkInterface.getNetworkInterfaces();
+while(Interfaces.hasMoreElements())
+{
+    NetworkInterface Interface = (NetworkInterface)Interfaces.nextElement();
+    Enumeration Addresses = Interface.getInetAddresses();
+    while(Addresses.hasMoreElements())
+    {
+        InetAddress Address = (InetAddress)Addresses.nextElement();
+        System.out.println(Address.getHostAddress() + " " + Address.getHostName());
+    }
+ }}
+  catch (Exception e)
+        {
+            e.printStackTrace();
+        }*/
         this.name = name;
         this.servidor = servidor;
         servidor.registerChatClient(this, name);
