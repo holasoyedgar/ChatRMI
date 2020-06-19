@@ -34,7 +34,8 @@ public class ClienteCliente extends UnicastRemoteObject implements InterfazClien
     public void enviarMensaje(String name, String mensaje) {
     	System.out.println(name + ": " + this.getRef());
         try {
-            String urlServidor = "rmi://" + otroCliente + "/RMIChatClienteCliente:3000";
+            String urlServidor = "rmi://" + otroCliente + ":3000/RMIChatClienteCliente";
+            System.out.println(urlServidor);
             InterfazClienteCliente cliente = (InterfazClienteCliente) Naming.lookup(urlServidor);
         	cliente.retriveMessage(name, mensaje);
         } catch (Exception ex) {

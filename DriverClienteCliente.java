@@ -17,7 +17,7 @@ public class DriverClienteCliente {
 		}catch(Exception e){
 			e.printStackTrace();
 		}*/
-        Naming.rebind("//192.168.1.71/RMIChatClienteCliente:3000", (Remote) cliente);
+        Naming.rebind("//192.168.1.74:3000/RMIChatClienteCliente", (Remote) cliente);
 	}
     public static void main(String[] args) throws RemoteException, MalformedURLException {
 		//LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
