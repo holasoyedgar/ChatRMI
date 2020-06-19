@@ -21,8 +21,9 @@ public class Ventana extends javax.swing.JFrame {
          {
             cliente.eliminarUsuario(name);
        //     System.out.println("Hasta la proxima");
+            new Selector().setVisible(true);
            dispose();
-           System.exit(0); 
+       //    System.exit(0); 
          }
       });
  
@@ -75,7 +76,7 @@ public class Ventana extends javax.swing.JFrame {
 	        }
 	    });
 
-        jButton2.setText("Salir y cerrar");
+        jButton2.setText("Cerrar Sesión");
         jButton2.setName("TxtEnviar"); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,7 +168,9 @@ public class Ventana extends javax.swing.JFrame {
 	
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                 
         cliente.eliminarUsuario(name);
-        System.exit(0);
+        new Selector().setVisible(true);
+        dispose();
+     //   System.exit(0);
     }
 
 	public void printToScreen(String name, String mensaje) {
