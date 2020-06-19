@@ -1,5 +1,3 @@
-//package cliente;
-
 import java.awt.event.*;
 import java.util.Calendar;
 
