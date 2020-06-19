@@ -1,7 +1,8 @@
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface InterfazCliente extends Remote {
+public interface InterfazClienteCliente extends Remote {
+   // void enviarMensaje(String name, String message) throws RemoteException;
     void retriveMessage(String name, String message) throws RemoteException;
-    String getName() throws RemoteException;
 }

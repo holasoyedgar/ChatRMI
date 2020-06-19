@@ -1,6 +1,4 @@
-//package servidor;
 
-//import cliente.InterfazCliente;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
