@@ -1,12 +1,8 @@
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.net.*;
-import java.util.*;
 import java.rmi.Naming;
-import java.rmi.NotBoundException;
 
 public class ClienteCliente extends UnicastRemoteObject implements InterfazClienteCliente, Runnable {
 
@@ -22,7 +18,7 @@ public class ClienteCliente extends UnicastRemoteObject implements InterfazClien
     }
     
     @Override
-    public void retriveMessage(String name, String message) throws RemoteException {
+    public void recibirMensaje(String name, String message) throws RemoteException {
     	ventana.printToScreen(name, message);
     }
 
@@ -38,7 +34,7 @@ public class ClienteCliente extends UnicastRemoteObject implements InterfazClien
            // System.out.println(urlServidor);
             InterfazClienteCliente cliente = (InterfazClienteCliente) Naming.lookup(urlServidor);
             ventana.printToScreen(name, mensaje);
-        	cliente.retriveMessage(name, mensaje);
+        	cliente.recibirMensaje(name, mensaje);
         } catch (Exception ex) {
             Logger.getLogger(ClienteCliente.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -14,7 +14,7 @@ public class Servidor extends UnicastRemoteObject implements Interfaz {
     }
 
     @Override
-    public synchronized void registerChatClient(InterfazCliente cliente, String name) throws RemoteException {
+    public synchronized void registrarCliente(InterfazCliente cliente, String name) throws RemoteException {
         this.clientes.add(cliente);
         this.nombres.add(name);
     }
@@ -24,7 +24,7 @@ public class Servidor extends UnicastRemoteObject implements Interfaz {
         int i = 0;
         System.out.println(name + ": " + message);
         while(i < clientes.size()) {
-        		clientes.get(i).retriveMessage(name, message);
+        		clientes.get(i).recibirMensaje(name, message);
         	i++;
         }
     }

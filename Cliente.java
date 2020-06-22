@@ -1,10 +1,7 @@
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.net.*;
-import java.util.*;
 
 public class Cliente extends UnicastRemoteObject implements InterfazCliente, Runnable {
 
@@ -15,12 +12,12 @@ public class Cliente extends UnicastRemoteObject implements InterfazCliente, Run
     protected Cliente(String name, Interfaz servidor) throws RemoteException {
         this.name = name;
         this.servidor = servidor;
-        servidor.registerChatClient(this, name);
+        servidor.registrarCliente(this, name);
         ventana = new Ventana(this, name);
     }
     
     @Override
-    public void retriveMessage(String name, String message) throws RemoteException {
+    public void recibirMensaje(String name, String message) throws RemoteException {
     	ventana.printToScreen(name, message);
     }
 
