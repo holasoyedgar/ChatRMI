@@ -2,7 +2,7 @@
 
 Para usar este programa en el servidor se necesitan los archivos **Driver.java**, **Interfaz.java**, **Servidor.java** 
 e **InterfazCliente.java** (los otros archivos se pueden ignorar); en los clientes se necesitan todos los demás archivos que no son los de arriba
-y el de **InterfazCliente.java**, se compilan todos los que se llaman **Interfaz...java**, todos los **Driver...java**, y las **Ventanas...java**,
+y también **InterfazCliente.java** e **Interfaz.java**, se compilan todos los que se llaman **Interfaz...java**, todos los **Driver...java**, y las **Ventanas...java**,
  además de **Selector.java**, luego de que se compiló eso se ejecuta el comando **rmiregistry 3000** en todas las máquinas (el puerto 3000 lo elegí yo, se puede cambiar en el código y aquí)
  , se abre otra ventana de terminal y en el servidor se ejecuta **java Driver** y se supone que ya sirve el servidor, en los clientes se ejecuta **java Selector**
  y se supone que debería funcionar el programa.
